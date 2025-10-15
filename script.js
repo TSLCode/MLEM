@@ -18,10 +18,9 @@ function clearConsole() {
     addLog('Console cleared', 'info');
 }
 
-addLog('Setting up event listeners...', 'info');
 
 const addScoreBtn = document.getElementById('add-score-btn');
-addScoreBtn.addEventListener('click', () => {
+function addScore() {
     addLog('Add Score button clicked', 'info');
     if (typeof supabase === 'undefined') {
         addLog('Supabase client not available. Cannot add score.', 'error');
@@ -40,6 +39,10 @@ addScoreBtn.addEventListener('click', () => {
                 }
             })
     }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    addScoreBtn.addEventListener('click', addScore());
 })
 
 addLog('Script loaded', 'error');
