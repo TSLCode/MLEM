@@ -18,6 +18,27 @@ function clearConsole() {
     addLog('Console cleared', 'info');
 }
 
+const addScoreBtn = document.getElementById('add-score-btn');
+addScoreBtn.addEventListener('click', () => {
+    if (typeof supabase === 'undefined') {
+        addLog('Supabase client not available. Cannot add score.', 'error');
+    } else {
+        const name = 'Player' + Math.floor(Math.random() * 1000);
+        const score = Math.floor(Math.random() * 100);
+        supabase
+            .from('leaderboard')
+            .insert([{name, score}])
+            .then(({ data, error }) => {
+                if (error) {
+                    addLog('Error adding score: ' + error, 'error');
+                } else {
+                    addLog('Added score successfully: ' + JSON.stringify(data), 'success');
+                    loadLeaderboard(supabase);
+                }
+            })
+    }
+})
+
 addLog('Script loaded', 'error');
 
 window.addLog = addLog;
