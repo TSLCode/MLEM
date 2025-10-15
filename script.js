@@ -19,7 +19,6 @@ function clearConsole() {
 }
 
 
-const addScoreBtn = document.getElementById('add-score-btn');
 function addScore() {
     addLog('Add Score button clicked', 'info');
     if (typeof supabase === 'undefined') {
@@ -42,9 +41,11 @@ function addScore() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    addLog('Getting event listeners...', 'info');
+    const addScoreBtn = document.getElementById('add-score-btn');
     addScoreBtn.addEventListener('click', addScore());
 })
 
 addLog('Script loaded', 'error');
-
+co
 window.addLog = addLog;
