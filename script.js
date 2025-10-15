@@ -47,5 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 addLog('Script loaded', 'error');
-co
+
 window.addLog = addLog;
