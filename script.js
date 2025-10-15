@@ -20,6 +20,7 @@ function clearConsole() {
 
 const addScoreBtn = document.getElementById('add-score-btn');
 addScoreBtn.addEventListener('click', () => {
+    addLog('Add Score button clicked', 'info');
     if (typeof supabase === 'undefined') {
         addLog('Supabase client not available. Cannot add score.', 'error');
     } else {
