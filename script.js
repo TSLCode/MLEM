@@ -18,6 +18,8 @@ function clearConsole() {
     addLog('Console cleared', 'info');
 }
 
+addLog('Setting up event listeners...', 'info');
+
 const addScoreBtn = document.getElementById('add-score-btn');
 addScoreBtn.addEventListener('click', () => {
     addLog('Add Score button clicked', 'info');
